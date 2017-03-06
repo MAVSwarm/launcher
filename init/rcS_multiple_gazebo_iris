@@ -8,6 +8,7 @@ param set NAV_RCL_ACT 0
 dataman start
 param set BAT_N_CELLS 3
 param set LPE_GPS_ON 0
+param set ATT_EXT_HDG_M 1
 param set CBRK_GPSFAIL 240024
 param set CAL_GYRO0_ID 2293768
 param set CAL_ACC0_ID 1376264
