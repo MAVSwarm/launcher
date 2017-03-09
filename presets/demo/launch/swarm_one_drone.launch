@@ -4,7 +4,7 @@
     <arg name="FlightScriptPath" default="$(arg FlightScriptPath)" />
     <arg name="rcS" default="" />
 
-    <include file="$(find swarm_sitl_launcher)/launch/px4_sitl.launch" >    
+    <include file="$(find mavros)/launch/px4.launch" >    
     	<arg name="fcu_url" value="$(arg fcu_url)" />
     </include>
 
