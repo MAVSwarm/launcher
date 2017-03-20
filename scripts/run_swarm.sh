@@ -68,4 +68,4 @@ done
 
 export GAZEBO_MODEL_PATH=${GAZEBO_MODEL_PATH}:${swarm_sitl_launcher_path}/tmp/models
 
-roslaunch swarm_sitl_launcher run_swarm.launch
+roslaunch ${swarm_sitl_launcher_path}/presets/${preset_name}/launch/run_swarm.launch

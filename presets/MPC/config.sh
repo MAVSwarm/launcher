@@ -1,0 +1,3 @@
+drone_num=4
+rcS=rcS_multiple_gazebo_iris
+model_name=iris
