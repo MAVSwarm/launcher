@@ -1,0 +1,80 @@
+<launch>
+    <arg name="gui" default="true" />
+    <arg name="headless" default="false" />
+
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="headless" value="$(arg headless)"/>
+        <arg name="gui" value="$(arg gui)"/>
+        <arg name="world_name" value="$(find swarm_sitl_launcher)/presets/demo2/worlds/iris.world" />
+    </include>
+
+    <include ns="drone1" file="$(find swarm_sitl_launcher)/presets/demo2/launch/swarm_one_drone.launch">
+        <arg name="fcu_url" value="udp://:15016@127.0.0.1:15011" />
+        <arg name="model_name" value="iris_1" />
+        <arg name="rcS" value="$(find swarm_sitl_launcher)/tmp/posix/1/rcS" />
+　　　　　<arg name="FlightScriptPath" value="$(find swarm_sitl_launcher)/presets/demo2/flight_scripts/drone1.json" />
+    </include>
+
+    <include ns="drone2" file="$(find swarm_sitl_launcher)/presets/demo2/launch/swarm_one_drone.launch">
+        <arg name="fcu_url" value="udp://:15026@127.0.0.1:15021" />
+        <arg name="model_name" value="iris_2" />
+        <arg name="rcS" value="$(find swarm_sitl_launcher)/tmp/posix/2/rcS" />
+	    <arg name="FlightScriptPath" value="$(find swarm_sitl_launcher)/presets/demo2/flight_scripts/drone2.json" />
+    </include>
+
+    <include ns="drone3" file="$(find swarm_sitl_launcher)/presets/demo2/launch/swarm_one_drone.launch">
+        <arg name="fcu_url" value="udp://:15036@127.0.0.1:15031" />
+        <arg name="model_name" value="iris_3" />
+        <arg name="rcS" value="$(find swarm_sitl_launcher)/tmp/posix/3/rcS" />
+	    <arg name="FlightScriptPath" value="$(find swarm_sitl_launcher)/presets/demo2/flight_scripts/drone3.json" />
+    </include>
+
+    <include ns="drone4" file="$(find swarm_sitl_launcher)/presets/demo2/launch/swarm_one_drone.launch">
+        <arg name="fcu_url" value="udp://:15046@127.0.0.1:15041" />
+        <arg name="model_name" value="iris_4" />
+        <arg name="rcS" value="$(find swarm_sitl_launcher)/tmp/posix/4/rcS" />
+	    <arg name="FlightScriptPath" value="$(find swarm_sitl_launcher)/presets/demo2/flight_scripts/drone4.json" />
+    </include>
+
+    <include ns="drone5" file="$(find swarm_sitl_launcher)/presets/demo2/launch/swarm_one_drone.launch">
+        <arg name="fcu_url" value="udp://:15056@127.0.0.1:15051" />
+        <arg name="model_name" value="iris_5" />
+        <arg name="rcS" value="$(find swarm_sitl_launcher)/tmp/posix/5/rcS" />
+	    <arg name="FlightScriptPath" value="$(find swarm_sitl_launcher)/presets/demo2/flight_scripts/drone5.json" />
+    </include>
+
+    <include ns="drone6" file="$(find swarm_sitl_launcher)/presets/demo2/launch/swarm_one_drone.launch">
+        <arg name="fcu_url" value="udp://:15066@127.0.0.1:15061" />
+        <arg name="model_name" value="iris_6" />
+        <arg name="rcS" value="$(find swarm_sitl_launcher)/tmp/posix/6/rcS" />
+	    <arg name="FlightScriptPath" value="$(find swarm_sitl_launcher)/presets/demo2/flight_scripts/drone6.json" />
+    </include>
+
+    <include ns="drone4" file="$(find swarm_sitl_launcher)/presets/demo2/launch/swarm_one_drone.launch">
+        <arg name="fcu_url" value="udp://:15076@127.0.0.1:15071" />
+        <arg name="model_name" value="iris_7" />
+        <arg name="rcS" value="$(find swarm_sitl_launcher)/tmp/posix/7/rcS" />
+	    <arg name="FlightScriptPath" value="$(find swarm_sitl_launcher)/presets/demo2/flight_scripts/drone7.json" />
+    </include>
+
+    <include ns="drone4" file="$(find swarm_sitl_launcher)/presets/demo2/launch/swarm_one_drone.launch">
+        <arg name="fcu_url" value="udp://:15086@127.0.0.1:15081" />
+        <arg name="model_name" value="iris_8" />
+        <arg name="rcS" value="$(find swarm_sitl_launcher)/tmp/posix/8/rcS" />
+	    <arg name="FlightScriptPath" value="$(find swarm_sitl_launcher)/presets/demo2/flight_scripts/drone8.json" />
+    </include>
+
+    <include ns="drone4" file="$(find swarm_sitl_launcher)/presets/demo2/launch/swarm_one_drone.launch">
+        <arg name="fcu_url" value="udp://:15096@127.0.0.1:15091" />
+        <arg name="model_name" value="iris_9" />
+        <arg name="rcS" value="$(find swarm_sitl_launcher)/tmp/posix/9/rcS" />
+	    <arg name="FlightScriptPath" value="$(find swarm_sitl_launcher)/presets/demo2/flight_scripts/drone9.json" />
+    </include>
+
+    <include ns="drone4" file="$(find swarm_sitl_launcher)/presets/demo2/launch/swarm_one_drone.launch">
+        <arg name="fcu_url" value="udp://:15106@127.0.0.1:15101" />
+        <arg name="model_name" value="iris_10" />
+        <arg name="rcS" value="$(find swarm_sitl_launcher)/tmp/posix/10/rcS" />
+	    <arg name="FlightScriptPath" value="$(find swarm_sitl_launcher)/presets/demo2/flight_scripts/drone10.json" />
+    </include>
+</launch>
