@@ -1,0 +1,5 @@
+Idle = "Idle"
+Initialized = "Initialized"
+Running = "Running"
+Paused = "Paused"
+Stopped = "Stopped"
