@@ -1,0 +1,5 @@
+init = "init"
+start = "start"
+restart = "restart"
+stop = "stop"
+pause = "pause"
