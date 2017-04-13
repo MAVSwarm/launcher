@@ -1,5 +1,5 @@
 <launch>
-<include ns="drone1" file="$(find swarm_sitl_launcher)/launch/posix_sitl.launch" >
+<include ns="drone1" file="$(find launcher)/launch/posix_sitl.launch" >
 </include>
 <include ns="drone1" file="$(find mavros)/launch/px4.launch">
     <arg name="fcu_url" value="udp://:14540@127.0.0.1:14557" />

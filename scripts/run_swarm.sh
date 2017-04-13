@@ -12,10 +12,10 @@ fi
 
 
 preset_name=${1}	#sitl drone numbers
-swarm_sitl_launcher_path=$(rospack find swarm_sitl_launcher)
+launcher_path=$(rospack find launcher)
 #rc_script=$3	#rc script name
 
-source ${swarm_sitl_launcher_path}/presets/${preset_name}/config.sh
+source ${launcher_path}/presets/${preset_name}/config.sh
 
 sim_port=15019
 mav_port=15010
@@ -26,15 +26,15 @@ mav_oport2=15016
 
 port_step=10
 
-if [ -e ${swarm_sitl_launcher_path}/tmp ]
+if [ -e ${launcher_path}/tmp ]
 then
-    rm -rf ${swarm_sitl_launcher_path}/tmp
+    rm -rf ${launcher_path}/tmp
     echo "cleared tmp folder"
 fi
 
-mkdir -p ${swarm_sitl_launcher_path}/tmp/posix
+mkdir -p ${launcher_path}/tmp/posix
 
-cd ${swarm_sitl_launcher_path}/tmp/posix
+cd ${launcher_path}/tmp/posix
 
 user=`whoami`
 n=1
@@ -47,15 +47,15 @@ while [ ${n} -le ${drone_num} ]; do
   mkdir -p rootfs/eeprom
   touch rootfs/eeprom/parameters
 
-  cat ${swarm_sitl_launcher_path}/presets/${preset_name}/init/${rcS} | sed s/_SIMPORT_/${sim_port}/ | sed s/_MAVPORT_/${mav_port}/g | sed s/_MAVOPORT_/${mav_oport}/ | sed s/_MAVPORT2_/${mav_port2}/ | sed s/_MAVOPORT2_/${mav_oport2}/ > rcS
+  cat ${launcher_path}/presets/${preset_name}/init/${rcS} | sed s/_SIMPORT_/${sim_port}/ | sed s/_MAVPORT_/${mav_port}/g | sed s/_MAVOPORT_/${mav_oport}/ | sed s/_MAVPORT2_/${mav_port2}/ | sed s/_MAVOPORT2_/${mav_oport2}/ > rcS
 
   cd ..
  fi
 
- mkdir -p ${swarm_sitl_launcher_path}/tmp/models/${model_name}_${n}
- cat ${swarm_sitl_launcher_path}/presets/${preset_name}/models/${model_name}/${model_name}.sdf | sed s/_SIMPORT_/${sim_port}/ | sed s/_MODEL_NAME_/${model_name}_${n}/ > ${swarm_sitl_launcher_path}/tmp/models/${model_name}_${n}/${model_name}_${n}.sdf
- cat ${swarm_sitl_launcher_path}/presets/${preset_name}/models/${model_name}/model.config | sed s/_SDF_FILE_/${model_name}_${n}.sdf/ > ${swarm_sitl_launcher_path}/tmp/models/${model_name}_${n}/model.config
-cp -r ${swarm_sitl_launcher_path}/presets/${preset_name}/models/${model_name}/meshes ${swarm_sitl_launcher_path}/tmp/models/${model_name}_${n}/meshes
+ mkdir -p ${launcher_path}/tmp/models/${model_name}_${n}
+ cat ${launcher_path}/presets/${preset_name}/models/${model_name}/${model_name}.sdf | sed s/_SIMPORT_/${sim_port}/ | sed s/_MODEL_NAME_/${model_name}_${n}/ > ${launcher_path}/tmp/models/${model_name}_${n}/${model_name}_${n}.sdf
+ cat ${launcher_path}/presets/${preset_name}/models/${model_name}/model.config | sed s/_SDF_FILE_/${model_name}_${n}.sdf/ > ${launcher_path}/tmp/models/${model_name}_${n}/model.config
+cp -r ${launcher_path}/presets/${preset_name}/models/${model_name}/meshes ${launcher_path}/tmp/models/${model_name}_${n}/meshes
 
  n=$((${n} + 1))
  sim_port=$((${sim_port} + ${port_step}))
@@ -66,6 +66,6 @@ cp -r ${swarm_sitl_launcher_path}/presets/${preset_name}/models/${model_name}/me
 done
 
 
-export GAZEBO_MODEL_PATH=${GAZEBO_MODEL_PATH}:${swarm_sitl_launcher_path}/tmp/models
+export GAZEBO_MODEL_PATH=${GAZEBO_MODEL_PATH}:${launcher_path}/tmp/models
 
-roslaunch ${swarm_sitl_launcher_path}/presets/${preset_name}/launch/run_swarm.launch
+roslaunch ${launcher_path}/presets/${preset_name}/launch/run_swarm.launch

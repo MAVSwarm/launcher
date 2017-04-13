@@ -14,7 +14,7 @@ then
     exit -1
 fi 
 
-path=$(rospack find swarm_sitl_launcher)
+path=$(rospack find launcher)
 
 if [ -e ${path} ]
 then
