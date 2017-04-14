@@ -8,7 +8,7 @@
     	<arg name="fcu_url" value="$(arg fcu_url)" />
     </include>
 
-    <include file="$(find onboard_statemachine)/launch/swarm.launch">
+    <include file="$(find navigator)/launch/swarm.launch">
     	<arg name="FlightScriptPath" value="$(arg FlightScriptPath)" />
     </include>
 
