@@ -5,5 +5,5 @@
     <arg name="fcu_url" value="udp://:14540@127.0.0.1:14557" />
 </include>
 <include ns="drone1" file="$(find onboard_statemachine)/launch/local.launch" />
-<include ns="drone1" file="$(find simulated_local_position)/launch/single_drone.launch" />
+<include ns="drone1" file="$(find local_position_simulator)/launch/single_drone.launch" />
 </launch>

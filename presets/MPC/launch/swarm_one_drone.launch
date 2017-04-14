@@ -12,7 +12,7 @@
     	<arg name="FlightScriptPath" value="$(arg FlightScriptPath)" />
     </include>
 
-    <node pkg="simulated_local_position" name="position_broadcast" type="position_broadcast.py">
+    <node pkg="local_position_simulator" name="LPS" type="position_broadcast.py">
         <param name="model_name" value="$(arg model_name)" />
     </node>
 
